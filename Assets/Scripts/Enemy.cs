@@ -9,7 +9,24 @@ public class Enemy : MonoBehaviour {
 	[SerializeField] private float attackSpeed = 1f;
 	private float canAttack;
 
+	[Header("Health")]
+	private float health;
+	[SerializeField] private float maxHealth;
+
 	private Transform target;
+
+	private void Start() {
+		health = maxHealth;
+	}
+
+	public void TakeDamage(float dmg) {
+		health -= dmg;
+		Debug.Log("Enemy Health: " + health);
+
+		if (health <= 0) {
+			Destroy(gameObject);
+		}
+	}
 
 	private void FixedUpdate() {
 		if (target != null) {

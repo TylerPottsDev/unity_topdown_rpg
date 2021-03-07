@@ -61,6 +61,7 @@ public class PlayerAttack : MonoBehaviour {
 
 		Arrow Arrow = Instantiate(ArrowPrefab, Bow.position, rot).GetComponent<Arrow>();
 		Arrow.ArrowVelocity = ArrowSpeed;
+		Arrow.ArrowDamage = ArrowDamage;
 
 		CanFire = false;
 		ArrowGFX.enabled = false;
