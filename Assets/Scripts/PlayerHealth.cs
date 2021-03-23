@@ -20,7 +20,13 @@ public class PlayerHealth : MonoBehaviour {
 			health = maxHealth;
 		} else if (health <= 0f) {
 			health = 0f;
+			PlayerDied();
 		}
+	}
+
+	private void PlayerDied() {
+		LevelManager.instance.GameOver();
+		gameObject.SetActive(false);
 	}
 
 	private void OnGUI() {
